@@ -4,3 +4,6 @@
 
 [dev]
   functions = "backend/functions"
+  
+[build.environment]
+  NODE_VERSION = "18"
