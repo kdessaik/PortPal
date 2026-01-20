@@ -1,12 +1,15 @@
+import { Navigate } from "react-router-dom"
+import { signInWithGoogle } from "../services/auth"
 
+export default function Login({ user }) {
+  if (user) return <Navigate to="/dashboard" />
 
-export default function Login() {
   return (
-    <main>
-      <h1>PortPal</h1>
-
-      <ProvidersSection />
-      <OrganizationsSection />
-    </main>
+    <div>
+      <h1>Login to PortPal</h1>
+      <button onClick={signInWithGoogle}>
+        Sign in with Google
+      </button>
+    </div>
   )
 }

@@ -1,0 +1,6 @@
+[build]
+  publish = "frontend/dist"
+  functions = "backend/functions"
+
+[dev]
+  functions = "backend/functions"
