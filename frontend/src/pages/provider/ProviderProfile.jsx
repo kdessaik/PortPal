@@ -1,46 +1,38 @@
 import { useEffect, useState } from "react"
+import { collection, getDocs, query, where, limit } from "firebase/firestore"
 import { saveProviderProfile, getProviderProfile } from "../../services/profileService"
+import { db } from "../../services/firebase"
 
-export default function ProviderProfile({ user }) {
-  const [form, setForm] = useState({
-    title: "",
-    services: "",
-    location: "",
-    bio: "",
-  })
+export default function ProvidersSection({ search }) {
+  const [providers, setProviders] = useState([])
 
   useEffect(() => {
-    const load = async () => {
-      const data = await getProviderProfile(user.uid)
-      if (data) setForm(data)
+    const loadProviders = async () => {
+      const q = query(collection(db, "users"), where("role", "==", "provider"), limit(20))
+      const snapshot = await getDocs(q)
+      setProviders(snapshot.docs.map(doc => ({ uid: doc.id, ...doc.data() })))
     }
-    load()
-  }, [user])
+    loadProviders()
+  }, [])
 
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value })
-  }
-
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    await saveProviderProfile(user.uid, {
-      ...form,
-      name: user.displayName,
-      photoURL: user.photoURL,
-    })
-    alert("Profile saved")
-  }
+  const filtered = providers.filter(p =>
+    p.profile?.title?.toLowerCase().includes(search?.toLowerCase() || "") ||
+    p.profile?.services?.toLowerCase().includes(search?.toLowerCase() || "") ||
+    p.profile?.location?.toLowerCase().includes(search?.toLowerCase() || "")
+  )
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>Provider Profile</h2>
-
-      <input name="title" placeholder="Title" onChange={handleChange} value={form.title} />
-      <input name="services" placeholder="Services (comma separated)" onChange={handleChange} value={form.services} />
-      <input name="location" placeholder="Location" onChange={handleChange} value={form.location} />
-      <textarea name="bio" placeholder="Bio" onChange={handleChange} value={form.bio} />
-
-      <button type="submit">Save</button>
-    </form>
+    <section>
+      <h2>Service Providers</h2>
+      {filtered.length === 0 && <p>No providers found.</p>}
+      {filtered.map((p) => (
+        <div key={p.uid} style={{ border: "1px solid #ccc", padding: "1rem", marginBottom: "1rem" }}>
+          <h3>{p.name}</h3>
+          <p><strong>Title:</strong> {p.profile?.title || "No title"}</p>
+          <p><strong>Services:</strong> {p.profile?.services || "No services listed"}</p>
+          <p><strong>Location:</strong> {p.profile?.location || "No location specified"}</p>
+        </div>
+      ))}
+    </section>
   )
 }
