@@ -12,7 +12,7 @@ export default function Home() {
       {/* Search bar for filtering providers/organizations */}
       <input
         type="text"
-        placeholder="Search providers or organizations..."
+        placeholder="Search Service needed or provided"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
         style={{ marginBottom: "2rem", padding: "0.5rem", width: "100%" }}
