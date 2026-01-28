@@ -31,17 +31,34 @@ export default function Dashboard() {
 
   if (!profile) return <p>Loading...</p>
 
+  const roleLabel =
+    profile.role?.charAt(0).toUpperCase() + profile.role?.slice(1)
+
   return (
     <div style={{ padding: "2rem" }}>
       <h1>Dashboard</h1>
-      <button onClick={() => setEditing(!editing)} style={{ marginBottom: "1rem" }}>
+
+      <button
+        onClick={() => setEditing(!editing)}
+        style={{ marginBottom: "1rem" }}
+      >
         {editing ? "Cancel Edit" : "Edit Profile"}
       </button>
 
+      {/* ================= HEADER ================= */}
+      <div style={{ marginBottom: "1rem" }}>
+        <h2>{profile.name}</h2>
+        <p >
+          Role: {roleLabel}
+        </p>
+      </div>
+
+      {/* ================= PROVIDER ================= */}
       {profile.role === "provider" && (
-        editing ? <ProviderProfile user={user} /> : (
+        editing ? (
+          <ProviderProfile user={user} role={profile.role} />
+        ) : (
           <div>
-            <h2>{profile.name}</h2>
             <p>Title: {profile.profile?.title || "-"}</p>
             <p>Services: {profile.profile?.services || "-"}</p>
             <p>Location: {profile.profile?.location || "-"}</p>
@@ -50,10 +67,12 @@ export default function Dashboard() {
         )
       )}
 
+      {/* ================= ORGANIZATION ================= */}
       {profile.role === "organization" && (
-        editing ? <OrganizationProfile user={user} /> : (
+        editing ? (
+          <OrganizationProfile user={user} role={profile.role} />
+        ) : (
           <div>
-            <h2>{profile.name}</h2>
             <p>Description: {profile.profile?.description || "-"}</p>
             <p>Services Needed: {profile.profile?.servicesNeeded || "-"}</p>
             <p>Location: {profile.profile?.location || "-"}</p>
