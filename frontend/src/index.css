@@ -2,8 +2,7 @@ button.btn-warning{
     border-radius: 50px;
      background-color: white;
      color: #fd4902;
-    border: white solid;
-    border:#fd4902 solid;
+    border:#fd4902  solid 0.5px;
     font-size: 21px;
     padding: 5px 30px;
     margin-left: 10px;
@@ -13,8 +12,8 @@ button.login.btn.btn-warning:hover{
    
 
     color:#bb3804;
-    border:#F14402 solid;
-    background-color: rgb(238, 238, 238);
+    border:#F14402  solid  0.5px;
+    background-color: rgb(255, 236, 236);
 }
 
 button.signup.btn.btn-warning{

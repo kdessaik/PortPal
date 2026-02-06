@@ -4,32 +4,38 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import {Image,Button} from 'react-bootstrap';
 import Logoimg from '../assets/PortpalLogo.png';
+import JobIcon from '../assets/JobIcon.svg'
+import ProviderIcon from '../assets/officeWorker.svg'
+import NewsIcon from "../assets/NewsIcon.svg"
+
+
 import '../index.css' 
 
 function Header() {
   return (
-    <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary">
-      <Container>
-        <Navbar.Brand href="./">
+    <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary" style={{position:'sticky'}}>
+      <Container style={{marginBottom:"-5px"}} >
+        <Navbar.Brand href="./" style={{marginBottom:"-35px"}}>
         <Image src={Logoimg} alt='Portpal Logo' className='logo' width={100} fluid roundedCircle /></Navbar.Brand>
         
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link href="#features">Features</Nav.Link>
-            <Nav.Link href="#pricing">Pricing</Nav.Link> 
-            <NavDropdown title="Dropdown" id="collapsible-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
+          <Nav className="me-auto" style={{gap:"30px", marginLeft:"25vw"}}>
+            <Nav.Link href="#features"  style={{textAlign:'center'}}>
+               <Image src={NewsIcon} alt='News' className='logo' width={30} fluid  /> <br/>News
+              
+              </Nav.Link>
+              
+        
+            <Nav.Link href="#provider" style={{textAlign:'center'}}>
+              <Image src={JobIcon} alt='Job icon' className='logo' width={30} fluid  /> <br/>Jobs
+              
+              </Nav.Link> 
+              <Nav.Link href="#provider" style={{textAlign:'center'}}>
+                <Image src={ProviderIcon} alt='Provider icon' className='logo' width={30} fluid  /> <br/>Providers
              
-                Separated link
-              </NavDropdown.Item>
-            </NavDropdown>
+              </Nav.Link> 
+            
           </Nav>
           <Nav>
             <Button variant="warning" className='login'>Login</Button>
