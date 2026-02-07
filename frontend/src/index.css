@@ -9,8 +9,6 @@ button.btn-warning{
     
 }
 button.login.btn.btn-warning:hover{
-   
-
     color:#bb3804;
     border:#F14402  solid  0.5px;
     background-color: rgb(255, 236, 236);
@@ -27,11 +25,25 @@ button.signup.btn.btn-warning{
     
 }
 button.btn.btn-warning:hover{
-   
-
-    
     border:#ffffff solid;
     background-color: #01346e;
+}
 
+.bg-body-tertiary.navbar.navbar-expand-lg.navbar-light {
+    --bs-bg-opacity: 1;    
+    background-color: rgb(255, 255, 255) !important;
+    
     
 }
+
+.iconsNavbar:hover{
+    background-color: rgb(242, 242, 242);
+    border-radius: 10px;
+    }
+
+.logo{
+    margin-top: -40px;
+   
+}
+
+
