@@ -1,3 +1,6 @@
+*{
+    padding: 0% 1%;
+}
 button.btn-warning{
     border-radius: 50px;
      background-color: white;
@@ -44,6 +47,23 @@ button.btn.btn-warning:hover{
 .logo{
     margin-top: -40px;
    
+}
+
+/*Home page*/
+
+.welcomeIntro{
+    display: flex;
+    flex-direction: row;
+    margin-top: 70px;
+}
+.welcomeIntro>h1{
+    width: 50%;
+   
+    margin-top: 10px;
+}
+.welcomeIntro>img{
+    width: 50%;
+    border-radius: 50px;
 }
 
 

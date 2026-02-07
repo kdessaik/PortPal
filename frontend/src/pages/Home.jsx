@@ -1,9 +1,9 @@
 
 import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+
 import Header from './Header';
+import {Image,Button} from 'react-bootstrap';
+import WelcomeIntroImg from '../assets/WelcomeIntro.jpg'
 
 
 import { useState } from "react"
@@ -18,6 +18,7 @@ import { main } from '@popperjs/core';
   return (
     <main>
       <Header/>
+       <WelcomeIntro/>
       <section style={{ padding: "2rem" }}>
       <h1>PortPal</h1>
 
@@ -33,6 +34,7 @@ import { main } from '@popperjs/core';
       
 
       {/* Pass search term to sections */}
+     
       <ProvidersSection search={search} />
       <OrganizationsSection search={search} />
     </section>
@@ -40,4 +42,25 @@ import { main } from '@popperjs/core';
     </main>
     
   )
+}
+
+function WelcomeIntro(){
+  return(
+    
+      <Container className='welcomeIntro'>
+        <div>
+          <h1>Welcome to Portpal;  <br/><span>Where Professionals Connect</span></h1><br/>
+          <Button variant="warning" className='login'>Login</Button>
+         <Button variant="warning" className='signup'>Create an account</Button>
+        </div>
+        
+        <Image src={WelcomeIntroImg} alt='Welcome Intro img' className='welcomeIntroImg'   />
+         
+
+      </Container>
+      
+
+    
+  )
+
 }
