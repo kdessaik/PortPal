@@ -5,7 +5,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import {Image,Button} from 'react-bootstrap';
 import Logoimg from '../assets/PortpalLogo.png';
 import JobIcon from '../assets/JobIcon.svg'
-import ProviderIcon from '../assets/officeWorker.svg'
+import ProviderIcon from '../assets/OfficeWorker.svg'
 import NewsIcon from "../assets/NewsIcon.svg"
 
 
