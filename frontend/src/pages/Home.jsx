@@ -17,7 +17,7 @@ import { main } from '@popperjs/core';
 
   return (
     <main>
-      <Header/>
+      
        <WelcomeIntro/>
       <section style={{ padding: "2rem" }}>
       <h1>PortPal</h1>

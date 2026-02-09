@@ -5,10 +5,13 @@ import Login from "./pages/Login"
 import Dashboard from "./pages/Dashboard"
 import SelectRole from "./pages/SelectRole"
 import ProtectedRoute from "./components/ProtectedRoute"
+import Header from "./pages/Header"
+
 
 export default function App() {
   return (
     <BrowserRouter>
+    <Header/>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
@@ -31,6 +34,7 @@ export default function App() {
           }
         />
       </Routes>
+
     </BrowserRouter>
   )
 }
